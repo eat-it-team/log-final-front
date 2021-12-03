@@ -3,13 +3,13 @@
 </template>
 
 <script setup lang="ts">
-import EsiaDataService from "../services/EsiaDataService";
+import UserDataService from "../services/UserDataService"
 import {ref} from "vue";
 import ResponseData from "../types/ResponseData";
 
 const user = ref({});
 
-EsiaDataService.userinfo()
+UserDataService.userinfo()
   .then((response: ResponseData) => {
     user.value = response.data;
     console.log(user)
