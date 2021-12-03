@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: final-front
+  template:
+    metadata:
+      labels:
+        app: final-front
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/eat-it-team/log-final-front/log-final-front:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 1
+              memory: 128Mi
+            limits:
+              cpu: 2
+              memory: 1Gi

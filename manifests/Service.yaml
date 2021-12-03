@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: final-front
+spec:
+  selector:
+    app: final-front
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30008
+      name: http
+      protocol: TCP
+  type: NodePort
