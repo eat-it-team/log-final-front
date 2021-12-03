@@ -1,5 +1,6 @@
 import http from "../plugins/apiMain";
 import EsiaDataService from "./EsiaDataService";
+import router from "../router";
 
 class UserDataService {
 
@@ -11,7 +12,12 @@ class UserDataService {
                     'Authorization': 'Bearer ' + EsiaDataService.getLocalToken()
                 }
             }
-        );
+        )
+        .catch((e: Error) => {
+            EsiaDataService.removeLocalToken();
+            router.push('/')
+            console.log('logout');
+        });
     }
 }
 

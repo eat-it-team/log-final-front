@@ -1,14 +1,14 @@
 <template>
   <router-link
       class="px-4 py-3 mt-3 m-3 font-medium tracking-wide text-gray-200 "
-      :class="logged ? [$route.name === 'Profile' ? activeClass : inactiveClass] : 'hidden'"
+      :class="isLogged() ? [$route.name === 'Profile' ? activeClass : inactiveClass] : 'hidden'"
       to="/profile"
   >
     Профиль
   </router-link>
 
   <button
-    v-if="logged"
+    v-if="isLogged()"
     @click="logout()"
     class="flex mx-4 border border-gray-400 px-4 py-2 text-gray-100 rounded-lg hover:bg-indigo-700 focus:outline-none"
   >
@@ -146,9 +146,9 @@
 import { ref } from "vue";
 import EsiaDataService from "../services/EsiaDataService";
 import ResponseData from "../types/ResponseData";
+import router from "../router";
 
 const open = ref(false);
-const logged = ref(EsiaDataService.getLocalToken() != undefined && EsiaDataService.getLocalToken() != null);
 
 const activeClass = ref(
     "text-white"
@@ -171,8 +171,8 @@ function login() {
   EsiaDataService.getToken(username.value, password.value)
     .then((response: ResponseData) => {
       message.value = '';
-      logged.value = true;
       open.value = false;
+      password.value = '';
       // TODO uncomment and refactor or delete
       // router.push("/result");
       EsiaDataService.saveLocalToken(response.data.access_token, response.data.refresh_token);
@@ -183,8 +183,13 @@ function login() {
     });
 }
 
+function isLogged(): boolean {
+  return EsiaDataService.getLocalToken() != undefined && EsiaDataService.getLocalToken() != null;
+}
+
 function logout() {
   EsiaDataService.removeLocalToken();
+  router.push('/');
 }
 </script>
 
