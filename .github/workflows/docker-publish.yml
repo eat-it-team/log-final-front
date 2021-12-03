@@ -33,3 +33,21 @@ jobs:
       env:
         IMAGE_NAME: $GITHUB_REPOSITORY
       run: docker push "ghcr.io/$GITHUB_REPOSITORY/${{ steps.global_env.outputs.IMAGE_NAME }}"
+
+  pull:
+    # Ensure test job passes before pushing image.
+    needs: build
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: Azure/k8s-set-context@v1
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          
+      - uses: Azure/k8s-deploy@v1.4
+        with:
+          manifests: |
+            manifests/Deployment.yml
+            manifests/Service.yml
+    
