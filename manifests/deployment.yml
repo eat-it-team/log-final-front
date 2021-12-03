@@ -17,6 +17,7 @@ spec:
           image: ghcr.io/eat-it-team/log-final-front/log-final-front:latest
           ports:
             - containerPort: 80
+          imagePullPolicy: Always
           resources:
             requests:
               cpu: 1

@@ -5,7 +5,7 @@
       <Header />
 
       <main class="flex-1  bg-gray-200">
-        <div class="container mx-auto mt-10 px-6 py-8 text-gray-800 ">
+        <div class="container mx-auto mt-10 px-6 py-8 text-gray-800 text-lg">
           <slot />
         </div>
       </main>
