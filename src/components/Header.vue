@@ -27,9 +27,7 @@
       </div>
 
       <div class="flex items-center">
-        <button class="flex mx-4 text-gray-100 border px-4 py-2 rounded-lg">
-          Войти
-        </button>
+        <login></login>
 
         <div class="relative">
           <button
@@ -93,6 +91,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import Login from "./Login.vue";
+
 
 const dropdownOpen = ref(false);
 </script>
