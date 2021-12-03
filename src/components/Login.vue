@@ -148,7 +148,7 @@ import EsiaDataService from "../services/EsiaDataService";
 import ResponseData from "../types/ResponseData";
 
 const open = ref(false);
-const logged = ref(EsiaDataService.getLocalToken() && EsiaDataService.getLocalToken().length > 0);
+const logged = ref(EsiaDataService.getLocalToken() != undefined && EsiaDataService.getLocalToken() != null);
 
 const activeClass = ref(
     "text-white"
