@@ -40,6 +40,11 @@ class EsiaDataService {
         localStorage.esia_token = token;
         localStorage.refresh_token = refresh_token;
     }
+
+    removeLocalToken() {
+        localStorage.removeItem('esia_token');
+        localStorage.removeItem('refresh_token');
+    }
 }
 
 export default new EsiaDataService();

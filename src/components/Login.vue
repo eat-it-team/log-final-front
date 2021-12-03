@@ -182,6 +182,10 @@ function login() {
       console.log(e);
     });
 }
+
+function logout() {
+  EsiaDataService.removeLocalToken();
+}
 </script>
 
 <style>
