@@ -1,4 +1,7 @@
 <template>
+
+  <home-header-bottom></home-header-bottom>
+
   <h3 class="text-gray-700 text-3xl text-center font-medium mb-6">
     Профиль
   </h3>
@@ -17,6 +20,7 @@
 import UserDataService from "../services/UserDataService"
 import {ref} from "vue";
 import ResponseData from "../types/ResponseData";
+import HomeHeaderBottom from "../components/HomeHeaderBottom.vue";
 
 const user = ref({
   "sub": "",
