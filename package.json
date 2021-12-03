@@ -1,6 +1,7 @@
 {
   "name": "log-final-clon",
   "version": "0.0.1",
+  "license": "(MIT OR Apache-2.0)",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
