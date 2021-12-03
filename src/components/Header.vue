@@ -1,6 +1,6 @@
 <template>
   <header
-    class="px-6 py-4 bg-indigo-500 border-b-4 border-indigo-600"
+    class="px-6 py-4 bg-indigo-500"
   >
     <div class="flex items-center justify-between">
       <div class="flex items-center">
