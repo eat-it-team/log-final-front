@@ -49,7 +49,7 @@ jobs:
         with:
           action: deploy
           manifests: |
-            ./manifests/deployment.yml
-            ./manifests/service.yml
+            manifests/deployment.yml
+            manifests/service.yml
           images: |
             ghcr.io/eat-it-team/log-final-front/log-final-front:latest
