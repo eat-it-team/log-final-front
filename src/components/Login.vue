@@ -148,7 +148,7 @@ import EsiaDataService from "../services/EsiaDataService";
 import ResponseData from "../types/ResponseData";
 
 const open = ref(false);
-const logged = ref(false);
+const logged = ref(EsiaDataService.getLocalToken() && EsiaDataService.getLocalToken().length > 0);
 
 const activeClass = ref(
     "text-white"
@@ -175,7 +175,7 @@ function login() {
       open.value = false;
       // TODO uncomment and refactor or delete
       // router.push("/result");
-      localStorage.esia_token = response.data.access_token;
+      EsiaDataService.saveLocalToken(response.data.access_token, response.data.refresh_token);
     })
     .catch((e: Error) => {
       message.value = 'Неправильный логин или пароль';

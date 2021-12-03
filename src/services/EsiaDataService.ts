@@ -21,16 +21,24 @@ class EsiaDataService {
         );
     }
 
-    userinfo(token: any): Promise<any> {
-        // const token = '';
+    userinfo(): Promise<any> {
         return http.get(
             `/realms/master/protocol/openid-connect/userinfo`,
             {
                 headers: {
-                    'Authorization': 'Bearer ' + token
+                    'Authorization': 'Bearer ' + this.getLocalToken()
                 }
             }
         );
+    }
+
+    getLocalToken(): string|null {
+        return localStorage.getItem('esia_token');
+    }
+
+    saveLocalToken(token: string, refresh_token: string) {
+        localStorage.esia_token = token;
+        localStorage.refresh_token = refresh_token;
     }
 }
 
