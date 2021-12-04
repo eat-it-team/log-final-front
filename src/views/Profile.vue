@@ -73,5 +73,6 @@ const user = ref({
 UserDataService.userinfo()
   .then((response: ResponseData) => {
     user.value = response.data;
+    localStorage.name = response.data.given_name;
   });
 </script>

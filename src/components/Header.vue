@@ -33,7 +33,10 @@
     </div>
 
     <div class="flex justify-center pt-6">
-      <span class="text-5xl text-gray-100 ">Цифровой двойник</span>
+      <span v-if="nameSetted()"
+          class="text-5xl text-gray-100 ">Добрый день, {{ getName() }}!</span>
+      <span v-else
+          class="text-5xl text-gray-100 ">Цифровой двойник</span>
     </div>
     <div class="flex justify-center pt-4 pb-24 ">
       <span class="text-xl text-gray-300 ">Узнайте больше о своей репутации</span>
@@ -47,4 +50,13 @@ import Login from "./Login.vue";
 
 
 const dropdownOpen = ref(false);
+
+function nameSetted() {
+  return localStorage.getItem('name') != undefined && localStorage.getItem('name') != null;
+}
+
+function getName() {
+  return localStorage.getItem('name');
+}
+
 </script>

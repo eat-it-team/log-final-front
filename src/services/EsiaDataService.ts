@@ -44,6 +44,7 @@ class EsiaDataService {
     removeLocalToken() {
         localStorage.removeItem('esia_token');
         localStorage.removeItem('refresh_token');
+        localStorage.removeItem('name');
     }
 }
 
