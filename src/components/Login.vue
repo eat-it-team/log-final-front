@@ -2,6 +2,14 @@
   <router-link
       class="px-4 py-3 mt-3 m-3 font-medium tracking-wide text-gray-200 "
       :class="isLogged() ? [$route.name === 'Profile' ? activeClass : inactiveClass] : 'hidden'"
+      to="/results"
+  >
+    Поиск информации
+  </router-link>
+
+  <router-link
+      class="px-4 py-3 mt-3 m-3 font-medium tracking-wide text-gray-200 "
+      :class="isLogged() ? [$route.name === 'Profile' ? activeClass : inactiveClass] : 'hidden'"
       to="/profile"
   >
     Профиль

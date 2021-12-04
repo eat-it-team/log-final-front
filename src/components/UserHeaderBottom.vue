@@ -1,6 +1,6 @@
 <template>
 
-  <div class="h-28 ">
+  <div class="h-24 ">
     <div class="relative -top-36 flex justify-center text-gray-800 text-xl">
 
       <user-found-news></user-found-news>
