@@ -5,6 +5,7 @@ class AnaliseDataService {
     analyse(): Promise<any> {
         return http.post(
             `/text/analyse`,
+            {},
             {
                 headers: {
                     'Authorization': 'Bearer ' + EsiaDataService.getLocalToken()
