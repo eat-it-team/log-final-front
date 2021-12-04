@@ -41,7 +41,9 @@ docker run -it -p 80:80 --rm --name log-final-front-app-1 log-final-front-app
 Фронт будет доступен по адресу http://localhost/
 
 ### CI
-сборка образа происходит с помошью GitHub Actions при вливании измененияй в ветку main.
+Сборка образа происходит с помошью GitHub Actions при вливании измененияй в ветку main.
+
+Деплой фронтенда на сорвер
 ```shell
 kubectl apply -f ./manifests --kubeconfig={{путь до конфигурационного файла}}
 ```
