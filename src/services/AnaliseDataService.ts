@@ -3,7 +3,7 @@ import EsiaDataService from "./EsiaDataService";
 
 class AnaliseDataService {
     analyse(): Promise<any> {
-        return http.get(
+        return http.post(
             `/text/analyse`,
             {
                 headers: {
