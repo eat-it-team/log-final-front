@@ -141,9 +141,15 @@
 <script setup lang="ts">
 import UserHeaderBottom from "../components/UserHeaderBottom.vue";
 import router from "../router";
+import AnaliseDataService from "../services/AnaliseDataService";
+import ResponseData from "../types/ResponseData";
 
 function resultsSocial() {
   router.push('');
 }
 
+AnaliseDataService.analyse()
+    .then((response: ResponseData) => {
+      console.log(response.data);
+    });
 </script>
